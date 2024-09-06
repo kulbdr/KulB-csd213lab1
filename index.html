@@ -17,26 +17,26 @@
     </p> 
     <table id="myTable">
         <tr>
-          <td>Row1 Column1</td>
-          <td>Row1 Column2</td>
+          <td>Row1 Col1</td>
+          <td>Row1 Col2</td>
         </tr>
         <tr>
-          <td>Row2 Column1</td>
-          <td>Row2 Column2</td>
+          <td>Row2 Col1</td>
+          <td>Row2 Col2</td>
         </tr>
         <tr>
-          <td>Row3 Column1</td>
-          <td>Row3 Column2</td>
-        </tr>
-      
-        <tr>
-          <td>Row4 Column1</td>
-          <td>Row4 Column2</td>
+          <td>Row3 Col1</td>
+          <td>Row3 Col2</td>
         </tr>
       
         <tr>
-          <td>Row5 Column1</td>
-          <td>Row5 Column2</td>
+          <td>Row4 Col1</td>
+          <td>Row4 Col2</td>
+        </tr>
+      
+        <tr>
+          <td>Row5 Col1</td>
+          <td>Row5 Col2</td>
         </tr>
       </table>
 
@@ -44,19 +44,31 @@
 
       <button onclick="myCreateFunction()">Create row</button>
       <button onclick="myDeleteFunction()">Delete row</button>
+      <p id="message"></p>
 
       <Script>
+
+        RowC=5;
+        RowD=5;
+
         function myCreateFunction() {
+            RowC++
+            RowD++
             var table = document.getElementById("myTable");
             var row = table.insertRow(-1);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
-            cell1.innerHTML = "New Column1";
-            cell2.innerHTML = "New Column2";
+            cell1.innerHTML = "Row" + RowC + " Col1";
+            cell2.innerHTML = "Row" +  RowC + " Col2";
+            document.getElementById("message").innerHTML = "";
         }
 
         function myDeleteFunction() {
-            document.getElementById("myTable").deleteRow(-1);
+            RowD--;
+            document.getElementById("myTable").deleteRow(0);
+            if (RowD < 1) { 
+                document.getElementById("message").innerHTML = "No more rows and columns to delete.";
+            }
         }
 
       </Script>
